@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZINE_ODATA_GL_ONAY_SRV" xml:lang="tr" sap:schema-version="1 "
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="InvoiceMaster" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="MatbuInvNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Fatura PB." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="InvTypeNo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Fatura Tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Cari Adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InvTypeName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 karakter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Date" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Fatura Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InvSenarioNo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Senaryo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InvSenarioName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 karakter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalValue" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Vergiler Dahil Tp. T" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusNo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Onay Statüsü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalDiscount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Toplam İskonto Tutar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusName" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalDiscountCur" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="TotalItemValue" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Toplam Kalem Tutarı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TotalItemCur" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="OutTax" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="V.H Toplam Tutar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OutTaxCur" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="InTax" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Vergiler Dahil Tp. T" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InTaxCur" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Para birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="RefNo" Type="Edm.Int32" Nullable="false" sap:label="Entegratör Ref. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Item" Relationship="ZINE_ODATA_GL_ONAY_SRV.Master_To_Item" FromRole="FromRole_Master_To_Item" ToRole="ToRole_Master_To_Item"/>
+            </EntityType>
+            <EntityType Name="Print" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="RefNo" Type="Edm.Int32" Nullable="false" sap:label="Entegratör Ref. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Url" Type="Edm.String" Nullable="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="InvoiceItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RefNo"/>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="Tax" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Vergi Tutarı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Faturalama ÖB." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="RefNo" Type="Edm.Int32" Nullable="false" sap:label="Entegratör Ref. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxCur" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Vergi PB." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNo" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemName" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Malzeme Tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Faturalanan Miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Kalem Tutarı PB." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="NetValue" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Kalem Tutarı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="InvoiceApprove" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RefNo"/>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="Log" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Approve Message" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RefNo" Type="Edm.Int32" Nullable="false" sap:label="Entegratör Ref. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="InvoiceReject" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RefNo"/>
+                    <PropertyRef Name="ObjectID"/>
+                </Key>
+                <Property Name="Log" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Approve Message" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RefNo" Type="Edm.Int32" Nullable="false" sap:label="Entegratör Ref. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Matbu Fatura No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="Master_To_Item" sap:content-version="1">
+                <End Type="ZINE_ODATA_GL_ONAY_SRV.InvoiceMaster" Multiplicity="1" Role="FromRole_Master_To_Item"/>
+                <End Type="ZINE_ODATA_GL_ONAY_SRV.InvoiceItem" Multiplicity="*" Role="ToRole_Master_To_Item"/>
+            </Association>
+            <EntityContainer Name="ZINE_ODATA_GL_ONAY_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="PrintSet" EntityType="ZINE_ODATA_GL_ONAY_SRV.Print" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceItemSet" EntityType="ZINE_ODATA_GL_ONAY_SRV.InvoiceItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceApproveSet" EntityType="ZINE_ODATA_GL_ONAY_SRV.InvoiceApprove" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceRejectSet" EntityType="ZINE_ODATA_GL_ONAY_SRV.InvoiceReject" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceMasterSet" EntityType="ZINE_ODATA_GL_ONAY_SRV.InvoiceMaster" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="Master_To_Item_AssocSet" Association="ZINE_ODATA_GL_ONAY_SRV.Master_To_Item" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="InvoiceMasterSet" Role="FromRole_Master_To_Item"/>
+                    <End EntitySet="InvoiceItemSet" Role="ToRole_Master_To_Item"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="./sap/ZINE_ODATA_GL_ONAY_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="./sap/ZINE_ODATA_GL_ONAY_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

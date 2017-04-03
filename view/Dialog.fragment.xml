@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog title="{i18n>FILTER_TIT}" confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>FATNO}" key="ObjectID" selected="true"/>
+			<ViewSettingsItem text="{i18n>DATE}" key="ObjectID" selected="false"/>
+		</sortItems>
+		<filterItems>
+			<ViewSettingsCustomItem text="{i18n>FATTUR}" key="FilterSozlesmelerim">
+				<customControl>
+					<VBox>
+						<RadioButton id="RTUM"   groupName="sapMRbDefaultGroup" text="Tüm Faturalar"   select="handleSozlesmelerimFilterSelection"/>
+						<RadioButton id="RGELEN" groupName="sapMRbDefaultGroup" text="Gelen Faturalar" select="handleSozlesmelerimFilterSelection"/>
+						<RadioButton id="RGIDEN" groupName="sapMRbDefaultGroup" text="Giden Faturalar" select="handleSozlesmelerimFilterSelection"/>
+					</VBox>
+				</customControl>
+			</ViewSettingsCustomItem>
+			<ViewSettingsCustomItem text="{i18n>YARTAR}" key="FilterYaratmaTarihi">
+				<customControl>
+					<f:SimpleForm editable="true">
+						<Label text="Başlangıç Tarihi"/>
+						<DatePicker id="idYaratmaTarihiBaslangic" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy"/>
+						<Label text="Bitiş Tarihi"/>
+						<DatePicker id="idYaratmaTarihiBitis" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy"/>
+					</f:SimpleForm>
+				</customControl>
+			</ViewSettingsCustomItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

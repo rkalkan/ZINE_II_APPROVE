@@ -1,0 +1,181 @@
+<core:View controllerName="ZINE_II_APPROVE.view.Detail" xmlns:ui="sap.ui.layout" xmlns:layout="sap.ui.layout" xmlns:ca="sap.ca.ui" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:crm="sap.cus.crm.lib.reuse.controls" xmlns:core="sap.ui.core">
+	<Page id="sco_detailPageId" title="{i18n>DETAIL_TITLE}" class="sapUiFioriObjectPage">
+		<ObjectHeader id="objectHeaderId" title="{InvTypeName} Faturası: {ObjectID}"
+			number="{parts:[{path:'TotalValue'},{path:'Currency'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}" introActive="false"
+			titleActive="false" iconActive="false">
+			<attributes>
+				<!-- extInvoiceGeneralInfo extension point allows you to replace the Invoice Info in the details header -->
+				<core:ExtensionPoint name="extInvoiceGeneralInfo">
+					<ObjectAttribute text="Fatura Numarası: {ObjectID}" active="false"></ObjectAttribute>
+					<ObjectAttribute id="MINVH_OH_ADDRESS" text="Müşteri: {CustomerName}" active="false"></ObjectAttribute>
+				</core:ExtensionPoint>
+			</attributes>
+			<firstStatus>
+				<ObjectStatus id="MINV_OS_STATUS" text="{StatusName}" state="{path:'StatusName', formatter:'ZINE_II_APPROVE.util.Formatter.setStatusColor'}"></ObjectStatus>
+			</firstStatus>
+			<secondStatus>
+				<ObjectStatus text="Fatura Tarihi: {path:'Date', formatter:'ZINE_II_APPROVE.util.Formatter.dateFormatterMaster2'}"></ObjectStatus>
+			</secondStatus>
+		</ObjectHeader>
+		<IconTabBar expanded="{device>/isNoPhone}">
+			<items>
+				<IconTabFilter id="info" icon="sap-icon://hint" iconColor="Neutral" design="Horizontal">
+					<content>
+						<form:Form id="so_DetailForm">
+							<form:formContainers>
+								<!-- extInvoiceDetails extension point allows you to replace the Invoice Details in the details info -->
+								<core:ExtensionPoint name="extInvoiceDetails">
+									<form:FormContainer id="MINV_FORM_INVOICE">
+										<form:formElements>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>MATBUNO}"></Label>
+												</form:label>
+												<form:fields>
+													<Text id="MINV_LBL_REFINVOICE" text="{MatbuInvNo}" maxLines="0"></Text>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>FATURATIPI}"></Label>
+												</form:label>
+												<form:fields>
+													<Text id="MINV_DETAILINVOICE_PAYMENTTERMS" text="{InvTypeName}" maxLines="0"></Text>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>SENARYO}"></Label>
+												</form:label>
+												<form:fields>
+													<Text text="{InvSenarioName}" maxLines="0"></Text>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+									</form:FormContainer>
+									<form:FormContainer>
+										<form:formElements>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>VERGIHARIC}"></Label>
+												</form:label>
+												<form:fields>
+													<ObjectNumber emphasized="false"
+														number="{parts:[{path:'OutTax'},{path:'OutTaxCur'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>VERGIDAHIL}"></Label>
+												</form:label>
+												<form:fields>
+													<ObjectNumber emphasized="false" number="{parts:[{path:'InTax'},{path:'InTaxCur'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>TOPKALEM}"></Label>
+												</form:label>
+												<form:fields>
+													<ObjectNumber emphasized="false"
+														number="{parts:[{path:'TotalItemValue'},{path:'TotalItemCur'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData linebreak="true" margin="false"></layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label text="{i18n>TOPISKONTO}"></Label>
+												</form:label>
+												<form:fields>
+													<ObjectNumber emphasized="false"
+														number="{parts:[{path:'TotalDiscount'},{path:'TotalDiscountCur'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+									</form:FormContainer>
+								</core:ExtensionPoint>
+							</form:formContainers>
+							<form:layout>
+								<form:ResponsiveLayout></form:ResponsiveLayout>
+							</form:layout>
+						</form:Form>
+					</content>
+				</IconTabFilter>
+				<IconTabFilter icon="sap-icon://product" iconColor="Positive">
+					<content>
+						<Table id="Product_Tab" noDataText="{i18n>NOPRODUCTS}" items="{ItemSet}">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="60%">
+									<header>
+										<Label text="Malzeme Kodu/Adı"></Label>
+									</header>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<header>
+										<Label text="Vergi Oranı"></Label>
+									</header>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<header>
+										<Label text="Miktar "></Label>
+									</header>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<header>
+										<Label text="Fiyat"></Label>
+									</header>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem id="productBasketTemplate_S3">
+									<cells>
+										<ObjectIdentifier title="{ItemNo}" text="{ItemName}"/>
+										<ObjectNumber emphasized="false" number="{parts:[{path:'Tax'},{path:'TaxCur'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+										<ObjectNumber emphasized="false" number="{parts:[{path:'Quantity'},{path:'Unit'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"></ObjectNumber>
+										<ObjectNumber
+											number="{ parts:[{path:'NetValue'},{path:'Currency'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+											unit="{Currency}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</IconTabFilter>
+				<IconTabFilter id="printTab" key="key5" icon="sap-icon://inspection" iconColor="Critical">
+					<content>
+						<Button text="Faturayı Görüntüle" press="getPrint" icon="sap-icon://search" type="Reject"/>
+					</content>
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="Approve" icon="sap-icon://accept" text="Onayla" press="getCaution" type="Accept"/>
+					<Button id="Reject" icon="sap-icon://decline" text="Reddet" press="getCaution" type="Reject"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

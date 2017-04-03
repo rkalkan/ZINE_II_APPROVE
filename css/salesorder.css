@@ -1,0 +1,149 @@
+.Wrap {
+	word-wrap: break-word;
+	width: 300px;
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: pre-wrap; /* css-3 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+	word-break: break-all;
+	white-space: normal;
+}
+.bold{
+    font-weight: bold;
+}
+.messageIcon{
+	background-color : #FF0000;
+}
+.cusMyAccountsPaddingTop {
+    padding-top: 1rem
+}
+.Font {
+	text-transform: capitalize;
+	/* 	font-size: 105%; */
+	/* 		font-weight: 700; */
+	color: #333333;
+	font-size: 1.125rem;
+	font-weight: normal;
+	line-height: 1.5rem;
+	vertical-align: top;
+	word-break: break-word;
+}
+
+.subFont {
+	color: #666666;
+	font-size: .875rem;
+}
+
+.hBox {
+	justify-content: space-between;
+}
+
+.Size {
+	font-size: 85%;
+}
+
+.sapUiRespGrid.sapUiRespGridHSpace1 {
+	height: 1024px;
+}
+
+.sapMeCalendarMonthDay sapMeCalendarWeekDay4 {
+	color: red;
+	font-weight: bold;
+}
+
+.LabelDisabled{
+	color : #F40606;
+}
+
+.labelStyle{
+	color : #000000 !important;
+	background-color: #FFFF00;
+	font-weight: bold;
+	font-family: Arial !important;
+	border-style: solid;
+	border-radius: 2px;
+	border-spacing: 2px;
+    border-color: #FFFF00;
+/*     margin: 25px; */
+    padding: 0.2rem;
+}
+
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType04{
+	    background-color: #0000cc !important;
+	    background-image: none !important;
+	    color: #ffffff !important;
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType04{
+	background-color: #0000cc !important;
+	background-image: none !important;
+}
+
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType06{
+	    background-color: #ff0000 !important;
+	    color: #ffffff;
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType06{
+	background-color: #ff0000 !important;
+}
+.sapMLIB .sapMLIB-CTX .sapMLIBShowSeparator .sapMLIBTypeInactive .sapMListTblRow{
+	padding: 0 !important;
+}
+
+.StatusPadding {
+    padding-top: 11px
+}
+.UnitPadding {
+    padding-top: 16.5px!important;
+    padding-left: 12px!important
+}
+.CosPadding {
+    padding-top: 16.5px!important
+}
+.ImagePadding {
+    padding-top: 1.45rem
+}
+.ImagePaddingMobile {
+    padding-top: 0.7rem
+}
+.showLabel {
+    white-space: normal
+}
+.showdialog .sapMDialogScrollCont {
+    padding: 5%
+}
+.TypePad {
+    padding: 1rem 0 0 0
+}
+.removeMargin {
+    margin: 0rem!important
+}
+.icntabHLayout {
+    width: 100%;
+    height: 100%
+}
+.icntabHLayout>div:nth-child(1) {
+    width: 100%;
+    height: 100%
+}
+.OppoErrorMsg {
+    font-size: 1rem;
+    padding-top: 0.875rem;
+    padding-right: 0.875rem
+}
+.divisionPadding {
+    padding-top: 1rem!important
+}
+.msgTitle .sapMSLITitleOnly {
+    font-size: 1rem
+}
+.msgIcon .sapMSLIImgIcon {
+    color: red
+}
+/* .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay6,.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay0 */
+/* 	{ */
+/* 	color: #ff0000; */
+/* 	font-weight: bold; */
+/* 	background-color: red; */
+/* } */

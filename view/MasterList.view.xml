@@ -1,0 +1,42 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZINE_II_APPROVE.view.MasterList"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="page" title="{i18n>MASTER_TITLE}">
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField search="handleSearch" showRefreshButton="true" width="100%"></SearchField>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<content>
+			<List id="list" selectionChange="_handleSelect" mode="{device>/listMode}" updateFinished="onUpdateFinished" growing="true"
+				noDataText="{i18n>LOADING_TEXT}" growingScrollToLoad="true" items="{/InvoiceMasterSet}">
+				<ObjectListItem id="MAIN_LIST_ITEM" type="Active" title="{ObjectID}"  number="{parts:[{path:'TotalValue'},{path:'Currency'}], formatter:'ZINE_II_APPROVE.util.Formatter.totalexpectednetValue'}"  >
+					<attributes>
+						<ObjectAttribute text="{path:'Date', formatter:'ZINE_II_APPROVE.util.Formatter.dateFormatterMaster2'}"/>
+					</attributes>
+					<firstStatus>
+						<ObjectStatus text="{StatusName}" state="{path:'StatusName', formatter:'ZINE_II_APPROVE.util.Formatter.setStatusColor'}"></ObjectStatus>
+					</firstStatus>
+					<secondStatus>
+						<ObjectStatus text="{CustomerName}"></ObjectStatus>
+					</secondStatus>
+				</ObjectListItem>
+				<infoToolbar id="listInfoToolbar">
+					<Toolbar id="toolbarInfo" visible="false">
+						<Label id="labelInfo" text=""/>
+						<ToolbarSpacer/>
+						<core:Icon id="crossIconMasterList" src="sap-icon://sys-cancel" press="_handleToolBar"/>
+					</Toolbar>
+				</infoToolbar>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://filter" press="handleOpenDialogFilter"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>
